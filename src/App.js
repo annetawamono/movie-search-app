@@ -2,10 +2,26 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import SearchMovies from "./searchMovies";
+import { Link, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <Main />
+      <div className="container">
+        <nav className="nav">
+          <ul>
+            <li className="nav__link">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="nav__link">
+              <Link to="/search">Search</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact={true} path="/" component={Home} />
+          <Route path="/search" component={Main} />
+        </Switch>
+      </div>
   );
 }
 
@@ -19,5 +35,13 @@ class Main extends React.Component {
     );
   }
 }
+
+// Home component
+const Home = () => (
+  <div className="container">
+    <h1 className="title">React Movie Search App</h1>
+    <Link className="button button--home" to="/search">Start</Link>
+  </div>
+);
 
 export default App;
