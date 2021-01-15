@@ -1,26 +1,28 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import SearchMovies from "./searchMovies";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
       <div className="container">
-        <nav className="nav">
-          <ul>
-            <li className="nav__link">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="nav__link">
-              <Link to="/search">Search</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route exact={true} path="/" component={Home} />
-          <Route path="/search" component={Main} />
-        </Switch>
+        <BrowserRouter>
+          <nav className="nav">
+            <ul>
+              <li className="nav__link">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="nav__link">
+                <Link to="/search">Search</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route exact={true} path="/" component={Home} />
+            <Route path="/search" component={Main} />
+          </Switch>
+        </BrowserRouter>
       </div>
   );
 }

@@ -41,9 +41,11 @@ export default function SearchMovies() {
         <button className="button" type="submit">Search</button>
       </form>
       <div className="card-list">
-        {movie.filter(m => m.poster_path).map(m => (
+        {(movie != null && movie.length) ?
+          movie.filter(m => m.poster_path).map(m => (
           <MovieCard movie={m} />
-        ))}
+        )) :
+        <p>No results found</p>}
       </div>
     </>
   );
